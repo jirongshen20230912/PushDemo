@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="btn_white_normal">#f7f8f8</color>
+    <color name="shape_login">#488fc2</color>
+    <color name="bottom_text_color_normal">#ffffff</color>
+    <color name="shape_loginBtn">#0a4484</color>
+    <!--标题栏渐变-->
+    <color name="title_gradient_start">#FF60c7f8</color>
+    <color name="title_gradient_end">#FF389af2</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="back">#ffe9e9e9</color>
+    <color name="text">#000000</color>
+    <color name="text1">#67dfe4</color>
+    <color name="text2">#90dd97</color>
+</resources>
