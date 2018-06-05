@@ -42,9 +42,15 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".KeLiuActivity" />
-        <activity android:name=".AnjianActivity" />
-        <activity android:name=".JingliActivity"></activity>
+        <activity
+            android:name=".KeLiuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AnjianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JingliActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

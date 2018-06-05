@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.iv_jingli)
     ImageView ivJingli;
 
+    private Context context;
+
     /**
      * 启动该activity
      *
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        context = MainActivity.this;
     }
 
     @OnClick({R.id.unread_msg_number, R.id.frameLayout_title_main, R.id.iv_keliu, R.id.iv_anjian, R.id.iv_jingli})
@@ -62,12 +65,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.iv_keliu:
                 //跳转到客流界面
+                KeLiuActivity.actionStart(context);
                 break;
             case R.id.iv_anjian:
                 //跳转到安检界面
+                AnjianActivity.actionStart(context);
                 break;
             case R.id.iv_jingli:
                 //跳转到警力界面
+                JingliActivity.actionStart(context);
                 break;
         }
     }
