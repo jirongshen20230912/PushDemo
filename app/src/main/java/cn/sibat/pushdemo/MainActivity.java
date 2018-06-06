@@ -57,11 +57,12 @@ public class MainActivity extends AppCompatActivity {
         context = MainActivity.this;
     }
 
-    @OnClick({R.id.unread_msg_number, R.id.frameLayout_title_main, R.id.iv_keliu, R.id.iv_anjian, R.id.iv_jingli})
+    @OnClick({R.id.unread_msg_number, R.id.btn_container_relay, R.id.iv_keliu, R.id.iv_anjian, R.id.iv_jingli})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.frameLayout_title_main:
+            case R.id.btn_container_relay:
                 //跳转到消息主界面
+                MessageActivity.actionStart(context);
                 break;
             case R.id.iv_keliu:
                 //跳转到客流界面

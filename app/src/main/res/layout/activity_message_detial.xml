@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MessageDetailActivity">
+
+
+    <include layout="@layout/title_detail" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/view_alert_bg_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_messageId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:text="NO.203021"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_messageTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:paddingEnd="20dp"
+                        android:text="2018-8-2 12:23:03"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="80dp"
+                        android:src="@mipmap/img_main_28" />
+
+                    <TextView
+                        android:id="@+id/tv_messageDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XX站点2号线站台楼梯附近发生疑似爆炸物"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_qianshou"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/view_alert_bg"
+                        android:paddingBottom="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:text="签收"
+                        android:textColor="@color/title_gradient_end"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_qingbao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/view_alert_bg"
+                        android:paddingBottom="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:text="情报反馈"
+                        android:textColor="@color/title_gradient_end"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_jieshu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/view_alert_bg"
+                        android:paddingBottom="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:text="结束处置"
+                        android:textColor="@color/title_gradient_end"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <cn.sibat.pushdemo.MyListView
+                android:id="@+id/myListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </cn.sibat.pushdemo.MyListView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

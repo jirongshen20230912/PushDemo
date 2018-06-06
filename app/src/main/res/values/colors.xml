@@ -15,4 +15,13 @@
     <color name="text">#000000</color>
     <color name="text1">#67dfe4</color>
     <color name="text2">#90dd97</color>
+    <color name="color_dark">#263238</color>
+    <color name="text3">#f4be80</color>
+    <color name="blue_tab">#4AA0D5</color>
+    <color name="black_me">#333333</color>
+    <color name="xuanzhong">#05AEFF</color>
+    <color name="white">#ffffff</color>
+    <color name="textMain">#060618</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#3c8ecb</color>
 </resources>

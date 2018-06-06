@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_detail_time"
+        android:textSize="12sp"
+        android:layout_marginStart="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018-8-2 12:23:03" />
+
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_detail_icon_up"
+            android:background="@color/title_gradient_end"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <ImageView
+            android:src="@mipmap/img_main_29"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:id="@+id/tv_detail_icon_down"
+            android:background="@color/title_gradient_end"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_detail_message"
+            android:textColor="@color/text"
+            android:textSize="12sp"
+            android:text="已评价"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_detail_user"
+            android:textSize="12sp"
+            android:text="张三（099321）福田派出所"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_message"
+        android:layout_marginStart="10dp"
+        android:src="@mipmap/img_main_30"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+
+</LinearLayout>

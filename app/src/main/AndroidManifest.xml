@@ -51,6 +51,12 @@
         <activity
             android:name=".JingliActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MessageDetailActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

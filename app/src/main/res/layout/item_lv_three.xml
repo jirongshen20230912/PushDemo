@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/view_alert_bg_content"
+    android:layout_height="wrap_content">
+
+   <TextView
+       android:id="@+id/item_time"
+       android:textSize="12sp"
+       android:layout_gravity="right"
+       android:text="下发时间： 2017-8-2 12:23:03"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@mipmap/img_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/tv_item_message"
+            android:layout_marginStart="10dp"
+            android:textSize="12sp"
+            android:text="XX站点2号线站台楼梯附近发生疑似爆炸物"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
