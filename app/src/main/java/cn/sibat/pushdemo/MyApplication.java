@@ -6,9 +6,12 @@ import android.content.Context;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import cn.jpush.android.api.JPushInterface;
 import okhttp3.OkHttpClient;
 
 public class MyApplication extends Application{
@@ -21,6 +24,13 @@ public class MyApplication extends Application{
         applicationContext = this;
         instance = this;
         initOkGo();
+        //初始化sdk
+        JPushInterface.setDebugMode(true);//正式版的时候设置false，关闭调试
+        JPushInterface.init(this);
+        //建议添加tag标签，发送消息的之后就可以指定tag标签来发送了
+       /* Set<String> set = new HashSet<>();
+        set.add("andfixdemo");//名字任意，可多添加几个
+        JPushInterface.setTags(this, set, null);//设置标签*/
 
     }
 
