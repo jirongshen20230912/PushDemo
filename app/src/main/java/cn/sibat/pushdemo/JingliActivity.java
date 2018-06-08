@@ -30,6 +30,7 @@ public class JingliActivity extends AppCompatActivity {
     @BindView(R.id.llayout_title)
     LinearLayout llayoutTitle;
     private  Context context;
+    public static JingliActivity jingliActivity;
 
     /**
      * 启动该activity
@@ -43,11 +44,28 @@ public class JingliActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        showMessageNum();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jingli);
         ButterKnife.bind(this);
         context = JingliActivity.this;
+        jingliActivity = this;
+        showMessageNum();
+    }
+
+    public void showMessageNum() {
+        if(AppInfo.getMessageNum(context)!=0){
+            frameLayoutTitleMain.setVisibility(View.VISIBLE);
+            unreadMsgNumber.setText(""+AppInfo.getMessageNum(context));
+        }else {
+            frameLayoutTitleMain.setVisibility(View.GONE);
+        }
     }
 
     @OnClick({R.id.iv_back, R.id.btn_container_relay})
@@ -59,6 +77,7 @@ public class JingliActivity extends AppCompatActivity {
             case R.id.btn_container_relay:
                 //跳转到消息界面
                 MessageActivity.actionStart(context);
+                AppInfo.setMessageNum(context,0);
                 break;
         }
     }

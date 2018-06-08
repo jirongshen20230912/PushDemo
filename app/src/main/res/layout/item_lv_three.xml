@@ -2,38 +2,160 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:background="@drawable/view_alert_bg_content"
     android:layout_height="wrap_content">
 
-   <TextView
-       android:id="@+id/item_time"
-       android:textSize="12sp"
-       android:layout_gravity="right"
-       android:text="下发时间： 2017-8-2 12:23:03"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
-
     <LinearLayout
-        android:gravity="center_vertical"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:orientation="horizontal"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@drawable/view_alert_bg_content"
+        android:orientation="vertical"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp">
 
-        <ImageView
-            android:src="@mipmap/img_user"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_item_message"
-            android:layout_marginStart="10dp"
-            android:textSize="12sp"
-            android:text="XX站点2号线站台楼梯附近发生疑似爆炸物"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_deviceAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="深大站C出口·电子围栏"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_createTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-8-2 12:23:03"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/img_main_9" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layout_deviceType1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_keypersonState"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="预警类别：积极关注" />
+
+                    <TextView
+                        android:id="@+id/tv_keypersonType"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人员类别：部级涉稳" />
+
+                    <TextView
+                        android:id="@+id/tv_compareSources"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="比中信息：Mac地址" />
+
+                    <TextView
+                        android:id="@+id/tv_keypersonId"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="110982199407152917√"
+                        android:textColor="@color/text2" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_deviceType2"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_eventType"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="事件类型：过密" />
+
+                    <TextView
+                        android:id="@+id/tv_crowdNumber"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="事件相关人数/总人数" />
+
+                    <TextView
+                        android:id="@+id/tv_chaosDesity"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="混乱程度:混乱" />
+
+                    <TextView
+                        android:id="@+id/tv_crowdDesity"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="过密程度:过密"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_deviceType3"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="人群密度：12人/平方米" />
+
+                    <TextView
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="阀值：11人/平方米" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_deviceType"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/img_main_10" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

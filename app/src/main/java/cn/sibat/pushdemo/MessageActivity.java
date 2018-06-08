@@ -197,16 +197,19 @@ public class MessageActivity extends AppCompatActivity {
                 setImageWidth(index, 0);
                 index = 0;
                 vpInfoMyCouponFile.setCurrentItem(0);
+                messageOneFragment.getData();
                 break;
             case R.id.rb_2:
                 setImageWidth(index, 1);
                 index = 1;
                 vpInfoMyCouponFile.setCurrentItem(1);
+                messageTwoFragment.getData();
                 break;
             case R.id.rb_3:
                 setImageWidth(index, 2);
                 index = 2;
                 vpInfoMyCouponFile.setCurrentItem(2);
+                messageThreeFragment.getData();
                 break;
         }
     }

@@ -27,27 +27,28 @@ public class SplashActivity extends AppCompatActivity {
         super.onStart();
         new Thread(new Runnable() {
             public void run() {
-                //判断是否登录
-                    //首先判断我们的系统是否登录,再判断环信的
-
-                        //如果环信的也登录了直接跳转到主页面
-                        long start = System.currentTimeMillis();
-                        long costTime = System.currentTimeMillis() - start;
-                        //wait
-                        if (sleepTime - costTime > 0) {
-                            try {
-                                Thread.sleep(sleepTime - costTime);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+                if (AppInfo.getIsLogin(context)) {
+                    long start = System.currentTimeMillis();
+                    long costTime = System.currentTimeMillis() - start;
+                    //wait
+                    if (sleepTime - costTime > 0) {
+                        try {
+                            Thread.sleep(sleepTime - costTime);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-                        LoginActivity.actionStart(context);
-                        finish();
-
-
-
+                    }
+                    MainActivity.actionStart(context);
+                    finish();
+                } else {
+                    try {
+                        Thread.sleep(sleepTime);
+                    } catch (InterruptedException e) {
+                    }
+                    LoginActivity.actionStart(context);
+                    finish();
                 }
-
+            }
                /* if (false) {//EMClient.getInstance().isLoggedInBefore()
                     // auto login mode, make sure all group and conversation is loaed before enter the main screen
                     long start = System.currentTimeMillis();

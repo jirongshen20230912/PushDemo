@@ -40,6 +40,7 @@ public class KeLiuActivity extends AppCompatActivity {
     @BindView(R.id.horizontalBarChart2)
     HorizontalBarChart horizontalBarChart2;
     private Context context;
+    public static KeLiuActivity keLiuActivity;
 
     /**
      * 启动该activity
@@ -53,11 +54,19 @@ public class KeLiuActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        showMessageNum();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ke_liu);
         ButterKnife.bind(this);
         context = KeLiuActivity.this;
+        keLiuActivity = this;
+        showMessageNum();
 
         List<String> xLabels = new ArrayList<>();
         xLabels.add("深大");
@@ -96,6 +105,15 @@ public class KeLiuActivity extends AppCompatActivity {
 
     }
 
+    public void showMessageNum() {
+        if(AppInfo.getMessageNum(context)!=0){
+            frameLayoutTitleMain.setVisibility(View.VISIBLE);
+            unreadMsgNumber.setText(""+AppInfo.getMessageNum(context));
+        }else {
+            frameLayoutTitleMain.setVisibility(View.GONE);
+        }
+    }
+
     @OnClick({R.id.iv_back, R.id.unread_msg_number, R.id.btn_container_relay})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -105,6 +123,7 @@ public class KeLiuActivity extends AppCompatActivity {
             case R.id.btn_container_relay:
                 //去消息界面
                 MessageActivity.actionStart(context);
+                AppInfo.setMessageNum(context,0);
                 break;
         }
     }

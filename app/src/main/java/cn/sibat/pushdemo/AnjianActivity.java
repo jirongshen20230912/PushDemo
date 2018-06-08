@@ -30,6 +30,7 @@ public class AnjianActivity extends AppCompatActivity {
     @BindView(R.id.llayout_title)
     LinearLayout llayoutTitle;
     private Context context;
+    public static AnjianActivity anjianActivity;
 
     /**
      * 启动该activity
@@ -42,6 +43,12 @@ public class AnjianActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showMessageNum();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,17 @@ public class AnjianActivity extends AppCompatActivity {
         setContentView(R.layout.activity_anjian);
         ButterKnife.bind(this);
         context = AnjianActivity.this;
+        anjianActivity = this;
+        showMessageNum();
+    }
+
+    public void showMessageNum() {
+        if(AppInfo.getMessageNum(context)!=0){
+            frameLayoutTitleMain.setVisibility(View.VISIBLE);
+            unreadMsgNumber.setText(""+AppInfo.getMessageNum(context));
+        }else {
+            frameLayoutTitleMain.setVisibility(View.GONE);
+        }
     }
 
     @OnClick({R.id.iv_back, R.id.btn_container_relay})
@@ -60,6 +78,7 @@ public class AnjianActivity extends AppCompatActivity {
             case R.id.btn_container_relay:
                 //跳转到信息界面
                 MessageActivity.actionStart(context);
+                AppInfo.setMessageNum(context,0);
                 break;
         }
     }

@@ -38,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
     private Context context;
 
+    public static MainActivity mainActivity;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showMessageNum();
+    }
+
     /**
      * 启动该activity
      *
@@ -55,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         context = MainActivity.this;
+        mainActivity = this;
+        showMessageNum();
+    }
+
+    public void showMessageNum() {
+        if(AppInfo.getMessageNum(context)!=0){
+            frameLayoutTitleMain.setVisibility(View.VISIBLE);
+            unreadMsgNumber.setText(""+AppInfo.getMessageNum(context));
+        }else {
+            frameLayoutTitleMain.setVisibility(View.GONE);
+        }
     }
 
     @OnClick({R.id.unread_msg_number, R.id.btn_container_relay, R.id.iv_keliu, R.id.iv_anjian, R.id.iv_jingli})
@@ -63,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_container_relay:
                 //跳转到消息主界面
                 MessageActivity.actionStart(context);
+                AppInfo.setMessageNum(context,0);
                 break;
             case R.id.iv_keliu:
                 //跳转到客流界面

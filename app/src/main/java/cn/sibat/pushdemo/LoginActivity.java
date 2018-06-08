@@ -49,16 +49,16 @@ public class LoginActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
-                MainActivity.actionStart(context);
-                finish();
-                /*if (checkContent()) {
+                if (checkContent()) {
                     if("admin".equals(userloginID)&&"123456".equals(userPassString)){
+                        // 设置是否登录为true
+                        AppInfo.setIsLogin(context, true);
                         MainActivity.actionStart(context);
                         finish();
                     }else {
                         CustomToast.showToast(context, "用户名或密码错误", 1000);
                     }
-                }*/
+                }
                 break;
         }
     }
