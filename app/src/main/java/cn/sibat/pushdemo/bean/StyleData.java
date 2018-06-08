@@ -34,6 +34,15 @@ public class StyleData {
     private String endTime;//
     private String crowdNumberAllImage;//
     private String stationId;//
+    private String personAndPassenger;//
+
+    public String getPersonAndPassenger() {
+        return personAndPassenger;
+    }
+
+    public void setPersonAndPassenger(String personAndPassenger) {
+        this.personAndPassenger = personAndPassenger;
+    }
 
     public String getDeviceType() {
         return deviceType;

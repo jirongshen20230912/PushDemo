@@ -37,6 +37,7 @@ public class MessageThreeFragment extends Fragment {
 
     List<StyleData> messageItemList = new ArrayList<>();
     CommonAdapter<StyleData>  messageItemCommonAdapter;
+    public static MessageThreeFragment messageThreeFragment;
 
 
     @Override
@@ -50,6 +51,7 @@ public class MessageThreeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_three, container, false);
         context = getActivity();
         unbinder = ButterKnife.bind(this, view);
+        messageThreeFragment = this;
         initData();
         return view;
     }
@@ -107,7 +109,7 @@ public class MessageThreeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //去消息详情页面
-                MessageDetailActivity.actionStart(context);
+                MessageDetailActivity.actionStart(context,messageItemList.get(position).getId(),messageItemList.get(position).getPersonAndPassenger());
             }
         });
     }

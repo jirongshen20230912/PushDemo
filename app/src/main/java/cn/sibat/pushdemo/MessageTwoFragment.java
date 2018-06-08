@@ -38,6 +38,8 @@ public class MessageTwoFragment extends Fragment {
     List<StyleData> messageItemList = new ArrayList<>();
     CommonAdapter<StyleData>  messageItemCommonAdapter;
 
+    public static MessageTwoFragment messageTwoFragment;
+
 
     @Override
     public void onStart() {
@@ -50,6 +52,7 @@ public class MessageTwoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_two, container, false);
         context = getActivity();
         unbinder = ButterKnife.bind(this, view);
+        messageTwoFragment = this;
         initData();
         return view;
     }
@@ -57,7 +60,7 @@ public class MessageTwoFragment extends Fragment {
     private void initData() {
         messageItemCommonAdapter = new CommonAdapter<StyleData>(context,messageItemList,R.layout.item_lv_two) {
             @Override
-            public void convert(CommonViewHolder helper, StyleData item) {
+            public void convert(CommonViewHolder helper, final StyleData item) {
 
                 if("感知门".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_11);
@@ -103,8 +106,8 @@ public class MessageTwoFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         super.onClick(v);
-                        new AlertDialog(mContext)
-                                .builder()
+                        final AlertDialog alertDialog = new AlertDialog(mContext);
+                        alertDialog.builder()
                                 .showEdit()
                                 .setTitle("情报反馈")
                                 .setNegativeButton("取消", new View.OnClickListener() {
@@ -116,7 +119,21 @@ public class MessageTwoFragment extends Fragment {
                                 .setPositiveButton("提交", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
+                                        String dealDetail = alertDialog.getEditText();
                                         //调用情报反馈接口
+                                        RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "2", dealDetail, new DisposeDataListener() {
+                                            @Override
+                                            public void onSuccess(Object responseObj) {
+                                                getData();
+                                                MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(2);
+                                                MessageThreeFragment.messageThreeFragment.getData();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Object reasonObj) {
+
+                                            }
+                                        });
 
                                     }
                                 })
@@ -140,6 +157,18 @@ public class MessageTwoFragment extends Fragment {
                                     @Override
                                     public void onClick(View v) {
                                         //调用结束处置接口
+                                        RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "3", "", new DisposeDataListener() {
+                                            @Override
+                                            public void onSuccess(Object responseObj) {
+                                                getData();
+
+                                            }
+
+                                            @Override
+                                            public void onFailure(Object reasonObj) {
+
+                                            }
+                                        });
 
                                     }
                                 })
@@ -155,7 +184,7 @@ public class MessageTwoFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //去消息详情页面
-                MessageDetailActivity.actionStart(context);
+                MessageDetailActivity.actionStart(context,messageItemList.get(position).getId(),messageItemList.get(position).getPersonAndPassenger());
             }
         });
     }

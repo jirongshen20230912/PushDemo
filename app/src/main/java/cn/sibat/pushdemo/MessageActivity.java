@@ -45,13 +45,15 @@ public class MessageActivity extends AppCompatActivity {
     @BindView(R.id.view_infoMyCouponLine)
     TextView viewInfoMyCouponLine;// 引导线
     @BindView(R.id.vp_infoMyCoupon_file)
-    public  CustomViewPager vpInfoMyCouponFile;
+    public CustomViewPager vpInfoMyCouponFile;
     OrderViewPagerAdapter orderViewPagerAdapter;
     private List<Fragment> fragmentList = new ArrayList<Fragment>();
 
     MessageOneFragment messageOneFragment;
     MessageTwoFragment messageTwoFragment;
     MessageThreeFragment messageThreeFragment;
+
+    public static MessageActivity messageActivity;
 
 
     /**
@@ -70,6 +72,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
+        messageActivity = this;
         initView();
     }
 

@@ -54,7 +54,7 @@ public class MessageOneFragment extends Fragment {
     private void initData() {
         messageItemCommonAdapter = new CommonAdapter<StyleData>(context,messageItemList,R.layout.item_lv_one) {
             @Override
-            public void convert(CommonViewHolder helper, StyleData item) {
+            public void convert(CommonViewHolder helper, final StyleData item) {
                 if("感知门".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_11);
                 }else if("AP".equals(item.getDeviceType())){
@@ -112,6 +112,19 @@ public class MessageOneFragment extends Fragment {
                                     @Override
                                     public void onClick(View v) {
                                         //调用签收接口
+                                        RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "1", "", new DisposeDataListener() {
+                                            @Override
+                                            public void onSuccess(Object responseObj) {
+                                                getData();
+                                                MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(1);
+                                                MessageTwoFragment.messageTwoFragment.getData();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Object reasonObj) {
+
+                                            }
+                                        });
 
                                     }
                                 })
@@ -127,7 +140,7 @@ public class MessageOneFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //去消息详情页面
-                MessageDetailActivity.actionStart(context);
+                MessageDetailActivity.actionStart(context,messageItemList.get(position).getId(),messageItemList.get(position).getPersonAndPassenger());
             }
         });
     }

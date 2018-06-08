@@ -123,6 +123,8 @@ public class AlertDialog {
 		return this;
 	}
 
+
+
 	public AlertDialog setNegativeButton(String text,
 			final OnClickListener listener) {
 		showNegBtn = true;
@@ -182,6 +184,10 @@ public class AlertDialog {
 		if (!showPosBtn && showNegBtn) {
 			btn_neg.setVisibility(View.VISIBLE);
 		}
+	}
+
+	public String getEditText(){
+		return edit_text.getText().toString().trim();
 	}
 
 	public void show() {

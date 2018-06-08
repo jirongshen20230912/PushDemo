@@ -15,10 +15,14 @@ public class OkHttpConstants {
      * 基础Url
      */
     public final static String URL1 = "/policeTraffic/api/earlyWarning/findAllEarlyWarning";
+    public final static String URL2 = "/policeTraffic/api/earlyWarning/dealWith";
+    public final static String URL3 = "/policeTraffic/api/earlyWarning/logList";
     public final static String CTMRURL = "/ctmr/";
     public final static String ORDRURL = "/ordr/";
     public final static String PRDTURL = "/prdt/";
 
     public final static String FINDURL1 = SERVER_ADDRESSS+URL1;
+    public final static String FINDURL2 = SERVER_ADDRESSS+URL2;
+    public final static String FINDURL3 = SERVER_ADDRESSS+URL3;
 
 }

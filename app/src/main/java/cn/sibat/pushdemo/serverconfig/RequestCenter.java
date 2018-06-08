@@ -65,7 +65,7 @@ public class RequestCenter {
     }
 */
     /**
-     * 请求首页保障区域 1 2 0
+     * 请求事件列表 1 2 0
      * @param listener
      */
     public static void findUrl1(String thingType,DisposeDataListener listener) {
@@ -73,6 +73,39 @@ public class RequestCenter {
         params.put("thingType",thingType);
         RequestCenter.getRequest(OkHttpConstants.FINDURL1, params, listener);
     }
+
+
+    /**
+     * 事件处理
+     * @param eventNo 事件ID 前面的id
+     * @param eventType 事件类型，前面的 personAndPassenger KeyPersonEarlyWarning重点人员、STPassengerAlarmWarning商汤客流报警、APPassengerAlarmWarning  AP客流报警  必填
+     * @param dealType  处理类型，1签收、2情报反馈、0完毕 必填
+     * @param dealDetail 反馈内容  非必填
+     * @param listener
+     */
+    public static void findUrl2(String eventNo,String eventType,String dealType,String dealDetail,DisposeDataListener listener) {
+        RequestParams params = new RequestParams();
+        params.put("eventNo",eventNo);
+        params.put("eventType",eventType);
+        params.put("dealType",dealType);
+        params.put("dealDetail",dealDetail);
+        RequestCenter.getRequest(OkHttpConstants.FINDURL2, params, listener);
+    }
+
+    /**
+     * 事件流程
+     * @param eventNo 事件ID 前面的 id
+     * @param eventType 事件类型，前面的 personAndPassenger  KeyPersonEarlyWarning重点人员、STPassengerAlarmWarning商汤客流报警、APPassengerAlarmWarning  AP客流报警  必填
+     * @param listener
+     */
+    public static void findUrl3(String eventNo,String eventType,DisposeDataListener listener) {
+        RequestParams params = new RequestParams();
+        params.put("eventNo",eventNo);
+        params.put("eventType",eventType);
+        RequestCenter.getRequest(OkHttpConstants.FINDURL3, params, listener);
+    }
+
+
 
 
 
