@@ -125,8 +125,7 @@ public class MessageTwoFragment extends Fragment {
                                             @Override
                                             public void onSuccess(Object responseObj) {
                                                 getData();
-                                                MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(2);
-                                                MessageThreeFragment.messageThreeFragment.getData();
+
                                             }
 
                                             @Override
@@ -157,11 +156,12 @@ public class MessageTwoFragment extends Fragment {
                                     @Override
                                     public void onClick(View v) {
                                         //调用结束处置接口
-                                        RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "3", "", new DisposeDataListener() {
+                                        RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "0", "", new DisposeDataListener() {
                                             @Override
                                             public void onSuccess(Object responseObj) {
                                                 getData();
-
+                                                MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(2);
+                                                MessageThreeFragment.messageThreeFragment.getData();
                                             }
 
                                             @Override

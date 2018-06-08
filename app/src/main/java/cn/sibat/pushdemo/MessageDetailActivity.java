@@ -266,7 +266,7 @@ public class MessageDetailActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 //调用结束处置接口
-                                RequestCenter.findUrl2(eventNo, eventType, "3", "", new DisposeDataListener() {
+                                RequestCenter.findUrl2(eventNo, eventType, "0", "", new DisposeDataListener() {
                                     @Override
                                     public void onSuccess(Object responseObj) {
                                         getData();
