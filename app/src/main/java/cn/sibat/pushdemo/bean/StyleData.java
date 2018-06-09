@@ -21,6 +21,7 @@ public class StyleData {
     private String keypersonId;//
     private String createTimeStr;//
     private String updateTimeStr;//
+    private String reserve3;//
 
     private String deviceNo;//
     private String eventType;//
@@ -35,6 +36,14 @@ public class StyleData {
     private String crowdNumberAllImage;//
     private String stationId;//
     private String personAndPassenger;//
+
+    public String getReserve3() {
+        return reserve3;
+    }
+
+    public void setReserve3(String reserve3) {
+        this.reserve3 = reserve3;
+    }
 
     public String getPersonAndPassenger() {
         return personAndPassenger;

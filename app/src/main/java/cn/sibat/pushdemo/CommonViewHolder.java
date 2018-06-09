@@ -12,6 +12,8 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 /**
  * 通用适配器的ViewHolder，此类可以设定任意控件的显示
  *
@@ -148,6 +150,18 @@ public class CommonViewHolder {
     public CommonViewHolder setImageBitmap(int viewId, Bitmap bm) {
         ImageView view = getView(viewId);
         view.setImageBitmap(bm);
+        return this;
+    }
+    /**
+     * 为ImageView设置图片
+     *
+     * @param viewId
+     * @param url
+     * @return
+     */
+    public CommonViewHolder setImageUrl(int viewId, Context context,String url) {
+        ImageView view = getView(viewId);
+        Glide.with(context).load(url).into(view);
         return this;
     }
 

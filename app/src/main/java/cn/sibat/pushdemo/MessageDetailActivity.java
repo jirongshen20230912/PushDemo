@@ -3,13 +3,13 @@ package cn.sibat.pushdemo;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.newera.okhttputils.listener.DisposeDataListener;
 
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.sibat.pushdemo.bean.Base64Util;
 import cn.sibat.pushdemo.bean.JsonUtils;
 import cn.sibat.pushdemo.bean.StatusListData;
 import cn.sibat.pushdemo.bean.StringUtil;
@@ -71,6 +72,12 @@ public class MessageDetailActivity extends BaseActivity {
     ImageView ivDeviceType;
     @BindView(R.id.layout_main_detail)
     LinearLayout layoutMainDetail;
+    @BindView(R.id.iv_user1)
+    ImageView ivUser1;
+    @BindView(R.id.iv_user2)
+    ImageView ivUser2;
+    @BindView(R.id.iv_user3)
+    ImageView ivUser3;
 
     private Context context;
 
@@ -333,18 +340,48 @@ public class MessageDetailActivity extends BaseActivity {
         layoutMainDetail.setVisibility(View.VISIBLE);
         if ("感知门".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_11);
+            ivUser1.setVisibility(View.VISIBLE);
+            ivUser2.setVisibility(View.VISIBLE);
+            ivUser3.setVisibility(View.GONE);
+            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            ivUser2.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve3()));
         } else if ("AP".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_14);
+            ivUser1.setVisibility(View.VISIBLE);
+            ivUser2.setVisibility(View.GONE);
+            ivUser3.setVisibility(View.GONE);
+            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
         } else if ("WIFI".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_32);
+            ivUser1.setVisibility(View.VISIBLE);
+            ivUser2.setVisibility(View.GONE);
+            ivUser3.setVisibility(View.GONE);
+            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
         } else if ("深圳通".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_31);
+            ivUser1.setVisibility(View.VISIBLE);
+            ivUser2.setVisibility(View.GONE);
+            ivUser3.setVisibility(View.GONE);
+            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
         } else if ("电子围栏".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_10);
+            ivUser1.setVisibility(View.VISIBLE);
+            ivUser2.setVisibility(View.GONE);
+            ivUser3.setVisibility(View.GONE);
+            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
         } else if ("人脸识别".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_27);
+            ivUser1.setVisibility(View.VISIBLE);
+            ivUser2.setVisibility(View.VISIBLE);
+            ivUser3.setVisibility(View.GONE);
+            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            ivUser2.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve3()));
         } else {
             ivDeviceType.setImageResource(R.mipmap.img_main_25);
+            ivUser1.setVisibility(View.GONE);
+            ivUser2.setVisibility(View.GONE);
+            ivUser3.setVisibility(View.VISIBLE);
+            Glide.with(context).load(styleData.getImagePath()).into(ivUser3);
         }
         if (!TextUtils.isEmpty(styleData.getDeviceType())) {
             layoutDeviceType1.setVisibility(View.VISIBLE);

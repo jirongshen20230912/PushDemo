@@ -1,9 +1,12 @@
 package cn.sibat.pushdemo;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.sibat.pushdemo.bean.Base64Util;
 import cn.sibat.pushdemo.bean.JsonUtils;
 import cn.sibat.pushdemo.bean.StringUtil;
 import cn.sibat.pushdemo.bean.StyleData;
@@ -49,6 +53,8 @@ public class MessageOneFragment extends BaseFragment {
         context = getActivity();
         unbinder = ButterKnife.bind(this, view);
         initData();
+        Bitmap bmp= BitmapFactory.decodeResource(getResources(), R.mipmap.img_main_9);
+        Log.i("TAG",Base64Util.bitmapToBase64(bmp));
         return view;
     }
 
@@ -58,18 +64,46 @@ public class MessageOneFragment extends BaseFragment {
             public void convert(CommonViewHolder helper, final StyleData item) {
                 if("感知门".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_11);
+                    helper.setViewVisibility(R.id.iv_user1,View.VISIBLE);
+                    helper.setViewVisibility(R.id.iv_user2,View.VISIBLE);
+                    helper.setViewVisibility(R.id.iv_user3,View.GONE);
+                    helper.setImageBitmap(R.id.iv_user1, Base64Util.base64ToBitmap(item.getReserve2()));
+                    helper.setImageBitmap(R.id.iv_user2, Base64Util.base64ToBitmap(item.getReserve3()));
                 }else if("AP".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_14);
+                    helper.setViewVisibility(R.id.iv_user1,View.VISIBLE);
+                    helper.setViewVisibility(R.id.iv_user2,View.GONE);
+                    helper.setViewVisibility(R.id.iv_user3,View.GONE);
+                    helper.setImageBitmap(R.id.iv_user1, Base64Util.base64ToBitmap(item.getReserve2()));
                 }else if("WIFI".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_32);
+                    helper.setViewVisibility(R.id.iv_user1,View.VISIBLE);
+                    helper.setViewVisibility(R.id.iv_user2,View.GONE);
+                    helper.setViewVisibility(R.id.iv_user3,View.GONE);
+                    helper.setImageBitmap(R.id.iv_user1, Base64Util.base64ToBitmap(item.getReserve2()));
                 }else if("深圳通".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_31);
+                    helper.setViewVisibility(R.id.iv_user1,View.VISIBLE);
+                    helper.setViewVisibility(R.id.iv_user2,View.GONE);
+                    helper.setViewVisibility(R.id.iv_user3,View.GONE);
+                    helper.setImageBitmap(R.id.iv_user1, Base64Util.base64ToBitmap(item.getReserve2()));
                 }else if("电子围栏".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_10);
+                    helper.setViewVisibility(R.id.iv_user1,View.VISIBLE);
+                    helper.setViewVisibility(R.id.iv_user2,View.GONE);
+                    helper.setViewVisibility(R.id.iv_user3,View.GONE);
+                    helper.setImageBitmap(R.id.iv_user1, Base64Util.base64ToBitmap(item.getReserve2()));
                 }else if("人脸识别".equals(item.getDeviceType())){
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_27);
+                    helper.setViewVisibility(R.id.iv_user2,View.VISIBLE);
+                    helper.setImageBitmap(R.id.iv_user1, Base64Util.base64ToBitmap(item.getReserve2()));
+                    helper.setImageBitmap(R.id.iv_user2, Base64Util.base64ToBitmap(item.getReserve3()));
                 }else {
                     helper.setImageResource(R.id.iv_deviceType,R.mipmap.img_main_25);
+                    helper.setViewVisibility(R.id.iv_user1,View.GONE);
+                    helper.setViewVisibility(R.id.iv_user2,View.GONE);
+                    helper.setViewVisibility(R.id.iv_user3,View.VISIBLE);
+                    helper.setImageUrl(R.id.iv_user3,context,item.getImagePath());
                 }
                 if(!TextUtils.isEmpty(item.getDeviceType())){
                     helper.setViewVisibility(R.id.layout_deviceType1,View.VISIBLE);
