@@ -113,9 +113,11 @@ public class MessageOneFragment extends BaseFragment {
                                     @Override
                                     public void onClick(View v) {
                                         //调用签收接口
+                                        LoadingDialogShow("");
                                         RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "1", "", new DisposeDataListener() {
                                             @Override
                                             public void onSuccess(Object responseObj) {
+                                                LoadingDialogDismiss();
                                                 getData();
                                                 MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(1);
                                                 MessageTwoFragment.messageTwoFragment.getData();
@@ -123,7 +125,7 @@ public class MessageOneFragment extends BaseFragment {
 
                                             @Override
                                             public void onFailure(Object reasonObj) {
-
+                                                LoadingDialogDismiss();
                                             }
                                         });
 

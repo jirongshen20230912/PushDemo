@@ -203,9 +203,11 @@ public class MessageDetailActivity extends BaseActivity {
                             public void onClick(View v) {
                                 //调用签收接口
                                 //调用签收接口
+                                LoadingDialogShow("");
                                 RequestCenter.findUrl2(eventNo, eventType, "1", "", new DisposeDataListener() {
                                     @Override
                                     public void onSuccess(Object responseObj) {
+                                        LoadingDialogDismiss();
                                         getData();
                                         MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(1);
                                         MessageTwoFragment.messageTwoFragment.getData();
@@ -213,7 +215,7 @@ public class MessageDetailActivity extends BaseActivity {
 
                                     @Override
                                     public void onFailure(Object reasonObj) {
-
+                                        LoadingDialogDismiss();
                                     }
                                 });
 
@@ -237,9 +239,11 @@ public class MessageDetailActivity extends BaseActivity {
                             public void onClick(View v) {
                                 String dealDetail = alertDialog.getEditText();
                                 //调用情报反馈接口
+                                LoadingDialogShow("");
                                 RequestCenter.findUrl2(eventNo, eventType, "2", dealDetail, new DisposeDataListener() {
                                     @Override
                                     public void onSuccess(Object responseObj) {
+                                        LoadingDialogDismiss();
                                         getData();
                                         MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(2);
                                         MessageThreeFragment.messageThreeFragment.getData();
@@ -247,7 +251,7 @@ public class MessageDetailActivity extends BaseActivity {
 
                                     @Override
                                     public void onFailure(Object reasonObj) {
-
+                                        LoadingDialogDismiss();
                                     }
                                 });
 
@@ -269,15 +273,17 @@ public class MessageDetailActivity extends BaseActivity {
                             @Override
                             public void onClick(View v) {
                                 //调用结束处置接口
+                                LoadingDialogShow("");
                                 RequestCenter.findUrl2(eventNo, eventType, "0", "", new DisposeDataListener() {
                                     @Override
                                     public void onSuccess(Object responseObj) {
+                                        LoadingDialogDismiss();
                                         getData();
                                     }
 
                                     @Override
                                     public void onFailure(Object reasonObj) {
-
+                                        LoadingDialogDismiss();
                                     }
                                 });
 

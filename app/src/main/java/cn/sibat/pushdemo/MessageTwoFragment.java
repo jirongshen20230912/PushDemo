@@ -122,16 +122,18 @@ public class MessageTwoFragment extends BaseFragment {
                                     public void onClick(View v) {
                                         String dealDetail = alertDialog.getEditText();
                                         //调用情报反馈接口
+                                        LoadingDialogShow("");
                                         RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "2", dealDetail, new DisposeDataListener() {
                                             @Override
                                             public void onSuccess(Object responseObj) {
+                                                LoadingDialogDismiss();
                                                 getData();
 
                                             }
 
                                             @Override
                                             public void onFailure(Object reasonObj) {
-
+                                                LoadingDialogDismiss();
                                             }
                                         });
 
@@ -157,9 +159,11 @@ public class MessageTwoFragment extends BaseFragment {
                                     @Override
                                     public void onClick(View v) {
                                         //调用结束处置接口
+                                        LoadingDialogShow("");
                                         RequestCenter.findUrl2(item.getId(), item.getPersonAndPassenger(), "0", "", new DisposeDataListener() {
                                             @Override
                                             public void onSuccess(Object responseObj) {
+                                                LoadingDialogDismiss();
                                                 getData();
                                                 MessageActivity.messageActivity.vpInfoMyCouponFile.setCurrentItem(2);
                                                 MessageThreeFragment.messageThreeFragment.getData();
@@ -167,7 +171,7 @@ public class MessageTwoFragment extends BaseFragment {
 
                                             @Override
                                             public void onFailure(Object reasonObj) {
-
+                                                LoadingDialogDismiss();
                                             }
                                         });
 
