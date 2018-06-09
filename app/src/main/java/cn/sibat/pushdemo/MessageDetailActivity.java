@@ -23,9 +23,10 @@ import cn.sibat.pushdemo.bean.StatusListData;
 import cn.sibat.pushdemo.bean.StringUtil;
 import cn.sibat.pushdemo.bean.StyleData;
 import cn.sibat.pushdemo.bean.UrlDetails;
+import cn.sibat.pushdemo.serverconfig.BaseActivity;
 import cn.sibat.pushdemo.serverconfig.RequestCenter;
 
-public class MessageDetailActivity extends AppCompatActivity {
+public class MessageDetailActivity extends BaseActivity {
     @BindView(R.id.iv_back)
     ImageView ivBack;
     @BindView(R.id.tv_title)
@@ -68,6 +69,8 @@ public class MessageDetailActivity extends AppCompatActivity {
     LinearLayout layoutDeviceType3;
     @BindView(R.id.iv_deviceType)
     ImageView ivDeviceType;
+    @BindView(R.id.layout_main_detail)
+    LinearLayout layoutMainDetail;
 
     private Context context;
 
@@ -124,7 +127,7 @@ public class MessageDetailActivity extends AppCompatActivity {
                     helper.setViewVisibility(R.id.tv_detail_icon_down, View.VISIBLE);
                 }
 
-                switch (item.getDealStatus()){
+                switch (item.getDealStatus()) {
                     case "1":
                         helper.setText(R.id.tv_detail_message, "事件开始");
                         break;
@@ -149,7 +152,7 @@ public class MessageDetailActivity extends AppCompatActivity {
                     helper.setViewVisibility(R.id.tv_detail_user, View.GONE);
                 } else {
                     helper.setViewVisibility(R.id.tv_detail_user, View.VISIBLE);
-                    helper.setText(R.id.tv_detail_user, item.getDealUserName()+"("+item.getDealUserCode()+")");
+                    helper.setText(R.id.tv_detail_user, item.getDealUserName() + "(" + item.getDealUserCode() + ")");
                 }
                 /*if ("0".equals(item.getDetail_iv())) {
                     helper.setViewVisibility(R.id.iv_message, View.GONE);
@@ -179,7 +182,7 @@ public class MessageDetailActivity extends AppCompatActivity {
         messageDetailCommonAdapter.notifyDataSetChanged();
     }
 
-    @OnClick({R.id.iv_back,R.id.tv_qianshou, R.id.tv_qingbao, R.id.tv_jieshu})
+    @OnClick({R.id.iv_back, R.id.tv_qianshou, R.id.tv_qingbao, R.id.tv_jieshu})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -289,9 +292,11 @@ public class MessageDetailActivity extends AppCompatActivity {
      * 获取数据
      */
     public void getData() {
+        LoadingDialogShow("");
         RequestCenter.findUrl3(eventNo, eventType, new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
+                LoadingDialogDismiss();
                 String result = responseObj.toString();
                 UrlDetails urlDetails = JsonUtils.jsonObject(UrlDetails.class, result);
                 if (urlDetails != null) {
@@ -301,7 +306,7 @@ public class MessageDetailActivity extends AppCompatActivity {
                         messageDetailList.clear();
                     }
                     messageDetailList.addAll(urlDetails.getData().getLogList());
-                    for (int i = 0; i <messageDetailList.size() ; i++) {
+                    for (int i = 0; i < messageDetailList.size(); i++) {
                         messageDetailList.get(i).setIndex(i);
                     }
                     messageDetailCommonAdapter.notifyDataSetChanged();
@@ -312,13 +317,14 @@ public class MessageDetailActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Object reasonObj) {
-
+                LoadingDialogDismiss();
             }
         });
 
     }
 
     private void showStyleData(StyleData styleData) {
+        layoutMainDetail.setVisibility(View.VISIBLE);
         if ("感知门".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_11);
         } else if ("AP".equals(styleData.getDeviceType())) {

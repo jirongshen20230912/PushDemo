@@ -28,6 +28,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (!variant.buildType.name.equals('debug')) {
+                outputFileName = "公安预警_v${defaultConfig.versionName}_${buildType.name}_${releaseTime()}.apk"
+            }
+        }
+    }
+
+}
+
+def releaseTime() {
+    return new Date().format("yyyyMMddHHmm")
 }
 
 dependencies {

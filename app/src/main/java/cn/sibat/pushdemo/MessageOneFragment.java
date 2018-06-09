@@ -22,12 +22,13 @@ import cn.sibat.pushdemo.bean.JsonUtils;
 import cn.sibat.pushdemo.bean.StringUtil;
 import cn.sibat.pushdemo.bean.StyleData;
 import cn.sibat.pushdemo.bean.UrlDataList;
+import cn.sibat.pushdemo.serverconfig.BaseFragment;
 import cn.sibat.pushdemo.serverconfig.RequestCenter;
 
 /**
  * @author 沈吉荣
  */
-public class MessageOneFragment extends Fragment {
+public class MessageOneFragment extends BaseFragment {
     @BindView(R.id.listView)
     ListView listView;
     Unbinder unbinder;
@@ -149,9 +150,11 @@ public class MessageOneFragment extends Fragment {
      * 获取数据
      */
     public void getData() {
+        LoadingDialogShow("");
         RequestCenter.findUrl1("1", new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
+                LoadingDialogDismiss();
                 String result = responseObj.toString();
                 UrlDataList bean = JsonUtils.jsonObject(UrlDataList.class, result);
                 if (bean != null) {
@@ -167,7 +170,7 @@ public class MessageOneFragment extends Fragment {
 
             @Override
             public void onFailure(Object reasonObj) {
-
+                LoadingDialogDismiss();
             }
         });
 
