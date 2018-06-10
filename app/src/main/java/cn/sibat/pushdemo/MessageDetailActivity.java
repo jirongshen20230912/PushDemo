@@ -343,39 +343,55 @@ public class MessageDetailActivity extends BaseActivity {
             ivUser1.setVisibility(View.VISIBLE);
             ivUser2.setVisibility(View.VISIBLE);
             ivUser3.setVisibility(View.GONE);
-            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
-            ivUser2.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve3()));
+            if (!TextUtils.isEmpty(styleData.getReserve2())) {
+                ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            }
+            if (!TextUtils.isEmpty(styleData.getReserve3())) {
+                ivUser2.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve3()));
+            }
         } else if ("AP".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_14);
             ivUser1.setVisibility(View.VISIBLE);
             ivUser2.setVisibility(View.GONE);
             ivUser3.setVisibility(View.GONE);
-            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            if (!TextUtils.isEmpty(styleData.getReserve2())) {
+                ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            }
         } else if ("WIFI".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_32);
             ivUser1.setVisibility(View.VISIBLE);
             ivUser2.setVisibility(View.GONE);
             ivUser3.setVisibility(View.GONE);
-            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            if (!TextUtils.isEmpty(styleData.getReserve2())) {
+                ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            }
         } else if ("深圳通".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_31);
             ivUser1.setVisibility(View.VISIBLE);
             ivUser2.setVisibility(View.GONE);
             ivUser3.setVisibility(View.GONE);
-            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            if (!TextUtils.isEmpty(styleData.getReserve2())) {
+                ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            }
         } else if ("电子围栏".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_10);
             ivUser1.setVisibility(View.VISIBLE);
             ivUser2.setVisibility(View.GONE);
             ivUser3.setVisibility(View.GONE);
-            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            if (!TextUtils.isEmpty(styleData.getReserve2())) {
+                ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            }
         } else if ("人脸识别".equals(styleData.getDeviceType())) {
             ivDeviceType.setImageResource(R.mipmap.img_main_27);
             ivUser1.setVisibility(View.VISIBLE);
             ivUser2.setVisibility(View.VISIBLE);
             ivUser3.setVisibility(View.GONE);
-            ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
-            ivUser2.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve3()));
+            if (!TextUtils.isEmpty(styleData.getReserve2())) {
+                ivUser1.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve2()));
+            }
+            if (!TextUtils.isEmpty(styleData.getReserve3())) {
+                ivUser2.setImageBitmap(Base64Util.base64ToBitmap(styleData.getReserve3()));
+            }
         } else {
             ivDeviceType.setImageResource(R.mipmap.img_main_25);
             ivUser1.setVisibility(View.GONE);
