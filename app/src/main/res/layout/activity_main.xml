@@ -426,7 +426,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <ImageView
-                            android:src="@mipmap/img_main_9"
+                            android:src="@mipmap/img_user_demo"
                             android:layout_width="55dp"
                             android:layout_height="80dp" />
                         <LinearLayout
@@ -500,7 +500,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <ImageView
-                            android:src="@mipmap/img_main_9"
+                            android:src="@mipmap/img_user_demo1"
                             android:layout_width="55dp"
                             android:layout_height="80dp" />
                         <LinearLayout
@@ -612,7 +612,7 @@
                     android:layout_height="match_parent">
 
                   <ImageView
-                      android:src="@mipmap/img_main_12"
+                      android:src="@mipmap/img_user_demo3"
                       android:layout_width="50dp"
                       android:layout_height="50dp" />
 
@@ -687,7 +687,7 @@
                     android:layout_height="match_parent">
 
                   <ImageView
-                      android:src="@mipmap/img_main_12"
+                      android:src="@mipmap/img_user_demo4"
                       android:layout_width="50dp"
                       android:layout_height="50dp" />
 
@@ -705,7 +705,7 @@
                             android:textSize="16sp"
                             android:textColor="@color/text"
                             android:textStyle="bold"
-                            android:text="刘警官（09281）"
+                            android:text="王警官（09527）"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView

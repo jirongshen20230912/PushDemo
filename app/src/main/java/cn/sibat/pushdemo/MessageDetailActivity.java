@@ -137,21 +137,28 @@ public class MessageDetailActivity extends BaseActivity {
                 switch (item.getDealStatus()) {
                     case "1":
                         helper.setText(R.id.tv_detail_message, "事件开始");
+                        helper.setViewVisibility(R.id.tv_message,View.GONE);
                         break;
                     case "2":
                         helper.setText(R.id.tv_detail_message, "事件审核完毕");
+                        helper.setViewVisibility(R.id.tv_message,View.GONE);
                         break;
                     case "3":
                         helper.setText(R.id.tv_detail_message, "下发完毕");
+                        helper.setViewVisibility(R.id.tv_message,View.GONE);
                         break;
                     case "4":
                         helper.setText(R.id.tv_detail_message, "签收完毕");
+                        helper.setViewVisibility(R.id.tv_message,View.GONE);
                         break;
                     case "5":
                         helper.setText(R.id.tv_detail_message, "处置中");
+                        helper.setViewVisibility(R.id.tv_message,View.VISIBLE);
+                        helper.setText(R.id.tv_message,item.getDealDetail());
                         break;
                     case "6":
                         helper.setText(R.id.tv_detail_message, "处置完毕");
+                        helper.setViewVisibility(R.id.tv_message,View.GONE);
                         break;
                 }
 
