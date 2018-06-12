@@ -8,7 +8,7 @@ package cn.sibat.pushdemo.serverconfig;
 public class OkHttpConstants {
 
 //      public static String SERVER_ADDRESSS = "http://172.20.104.91:8993";
-      public static String SERVER_ADDRESSS = "http://192.168.40.78:80";
+      public static String SERVER_ADDRESSS = "http://gzmpolice.sibat.cn";
 //      public static String SERVER_ADDRESSS = "http://dev.sibat.cn";
 //      public static String SERVER_ADDRESSS = "http://172.20.104.138:9082";
 
